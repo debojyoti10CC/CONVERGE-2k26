@@ -118,10 +118,6 @@ const Index = () => {
         <SponsorshipSection />
       </section>
 
-      <section className="scroll-panel h-screen">
-        <PartnersSection />
-      </section>
-
       <section className="scroll-panel overflow-y-auto h-screen">
         <TeamSelection />
       </section>
