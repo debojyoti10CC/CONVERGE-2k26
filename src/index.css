@@ -4,34 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Formula1';
-  src: url('./assets/fonts/Formula1-Regular_web_0.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Formula1';
-  src: url('./assets/fonts/Formula1-Bold_web.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Formula1';
-  src: url('./assets/fonts/Formula1-Bold_web.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
 @layer base {
   :root {
+    /* --- MERGED & FIXED VARIABLES --- */
     --background: 220 20% 8%;
     --foreground: 0 0% 98%;
 
@@ -60,39 +35,12 @@
     --input: 220 15% 20%;
     --ring: 38 92% 50%;
 
-    --radius: 1rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 220 15% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 220 20% 8%;
-    --sidebar-accent: 220 15% 18%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 15% 20%;
-    --sidebar-ring: 38 92% 50%;
-
-    /* Custom colors */
-    --racing-amber: 38 92% 50%;
-    --racing-red: 0 84% 50%;
-    --racing-dark: 220 20% 8%;
-    --racing-gray: 220 10% 90%;
-    --gold: 50 80% 50%;
-    --silver: 0 0% 70%;
-    --copper: 25 60% 40%;
-    
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(220 20% 8% / 0.9), hsl(220 20% 8% / 0.7));
-    --gradient-card: linear-gradient(180deg, hsl(220 15% 15%), hsl(220 15% 10%));
-    --gradient-amber: linear-gradient(135deg, hsl(38 92% 50%), hsl(25 95% 45%));
+    /* Custom Racing Colors */
+    --racing-red: 0 84% 50%; 
   }
 
-  .dark {
-    --background: 220 20% 8%;
-    --foreground: 0 0% 98%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
@@ -107,160 +55,242 @@
   }
 }
 
-@layer components {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+/* --- UTILITIES & ANIMATIONS --- */
+/* @layer utilities { */
+  /* HACK: Manually mapping f1-red so it works without tailwind.config.js
+  .text-f1-red { color: hsl(var(--racing-red)); }
+  .bg-f1-red { background-color: hsl(var(--racing-red)); }
+  .bg-f1-red\/5 { background-color: hsl(var(--racing-red) / 0.05); }
+  .bg-f1-red\/10 { background-color: hsl(var(--racing-red) / 0.1); }
+  .bg-f1-red\/30 { background-color: hsl(var(--racing-red) / 0.3); }
+  .bg-f1-red\/50 { background-color: hsl(var(--racing-red) / 0.5); }
+  .border-f1-red { border-color: hsl(var(--racing-red)); }
+  .border-f1-red\/50 { border-color: hsl(var(--racing-red) / 0.5); }
+  .from-f1-red { --tw-gradient-from: hsl(var(--racing-red)); var(--tw-gradient-stops, var(--tw-gradient-from), var(--tw-gradient-to, rgba(255, 0, 0, 0))); }
+  .to-f1-red { --tw-gradient-to: hsl(var(--racing-red)); }
+
+  /* Glow Effects */
+  /* .text-glow-red {
+    text-shadow: 0 0 10px hsl(var(--racing-red) / 0.5), 0 0 20px hsl(var(--racing-red) / 0.3);
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 15px hsl(var(--racing-red) / 0.4);
+  }
+  
+  .f1-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .glass-card {
-    @apply bg-card/80 backdrop-blur-md border border-border/50;
+  .racing-stripe {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.03) 10px,
+      rgba(255, 255, 255, 0.03) 20px
+    );
   }
 
-  .racing-glow {
-    box-shadow: 0 0 60px hsl(var(--primary) / 0.3);
+  .speed-lines {
+    background-image: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.02) 50%, 
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: speed-lines-move 3s linear infinite;
   }
-
-  .nav-pill {
-    @apply bg-foreground/95 backdrop-blur-md rounded-full px-8 py-3 flex items-center gap-6;
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
-
-  .social-bar {
-    @apply bg-secondary/90 backdrop-blur-sm rounded-full py-6 px-3 flex flex-col items-center gap-4;
-  }
-
-  .cta-button {
-    @apply bg-secondary text-secondary-foreground font-medium px-6 py-3 rounded-full flex items-center gap-3 transition-all duration-300 hover:bg-secondary/90;
-  }
-
-  .cta-button-outline {
-    @apply border border-foreground/30 text-foreground font-medium px-6 py-3 rounded-full flex items-center gap-3 transition-all duration-300 hover:bg-foreground/10;
-  }
-
-  .event-card {
-    @apply bg-card rounded-2xl p-6 border border-border/30;
-  }
-
-  .timeline-dot {
-    @apply w-4 h-4 rounded-full;
-  }
-
-  .timeline-dot-amber {
-    @apply bg-primary;
-  }
-
-  .timeline-dot-red {
-    @apply bg-accent;
-  }
-
-  .timeline-dot-white {
-    @apply bg-foreground;
-  }
-}
-
-@layer utilities {
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
-    50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
-  }
-
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  } 
+} */
+
+  @layer utilities {
+  /* ------------------------------- */
+  /* 1. MANUAL COLOR MAPPING (F1-RED)*/
+  /* ------------------------------- */
+  .text-f1-red { color: hsl(var(--racing-red)); }
+  .bg-f1-red { background-color: hsl(var(--racing-red)); }
+  .border-f1-red { border-color: hsl(var(--racing-red)); }
+  
+  /* Opacity Variants */
+  .bg-f1-red\/5 { background-color: hsl(var(--racing-red) / 0.05); }
+  .bg-f1-red\/10 { background-color: hsl(var(--racing-red) / 0.1); }
+  .bg-f1-red\/20 { background-color: hsl(var(--racing-red) / 0.2); }
+  .bg-f1-red\/30 { background-color: hsl(var(--racing-red) / 0.3); }
+  
+  /* Gradient Fix - these hook into Tailwind's bg-gradient system */
+  .from-f1-red { 
+    --tw-gradient-from: hsl(var(--racing-red)) !important; 
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(0, 0, 0, 0)) !important;
+  }
+  .to-f1-red { 
+    --tw-gradient-to: hsl(var(--racing-red)) !important; 
+  }
+
+  /* ------------------------------- */
+  /* 2. GLOW EFFECTS & CARD STYLES   */
+  /* ------------------------------- */
+  .text-glow-red {
+    text-shadow: 0 0 10px hsl(var(--racing-red) / 0.5), 0 0 20px hsl(var(--racing-red) / 0.3);
+  }
+  
+  .glow-red {
+    box-shadow: 0 0 15px hsl(var(--racing-red) / 0.4);
+  }
+  
+  .f1-card {
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(10, 10, 10, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* ------------------------------- */
+  /* 3. NEW RACING TABS (SKEWED)     */
+  /* ------------------------------- */
+  .racing-skew {
+    transform: skewX(-20deg);
+  }
+  
+  .racing-skew-text {
+    transform: skewX(20deg); /* Counter-skew so text is straight */
+    display: inline-block;
+  }
+
+  .tab-active {
+    background: linear-gradient(90deg, hsl(var(--racing-red)) 0%, rgba(200, 0, 0, 0.8) 100%);
+    box-shadow: 0 0 15px hsl(var(--racing-red) / 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .tab-inactive {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .tab-inactive:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* ------------------------------- */
+  /* 4. BACKGROUND PATTERNS          */
+  /* ------------------------------- */
+  .racing-stripe {
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255, 255, 255, 0.03) 10px,
+      rgba(255, 255, 255, 0.03) 20px
+    );
+  }
+
+  .speed-lines {
+    background-image: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(255, 255, 255, 0.02) 50%, 
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: speed-lines-move 3s linear infinite;
   }
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }
-
-  /* Swiper custom styles */
-  .swiper {
-    width: 100%;
-    height: 100%;
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  .swiper-slide {
-    width: 100%;
-    height: 100%;
+  /* ------------------------------- */
+  /* 5. ANIMATIONS                   */
+  /* ------------------------------- */
+  @keyframes slide-in-right {
+    0% { transform: translateX(50px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  
+  .animate-slide-in-right {
+    animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
-  .swiper-pagination {
-    bottom: 30px !important;
+  @keyframes speed-lines-move {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
   }
 
-  .swiper-pagination-bullet {
-    background: hsl(var(--primary)) !important;
-    opacity: 0.5 !important;
-    width: 10px !important;
-    height: 10px !important;
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
   }
-
-  .swiper-pagination-bullet-active {
-    opacity: 1 !important;
-    width: 30px !important;
-    border-radius: 5px !important;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: hsl(var(--primary)) !important;
-    background: hsl(var(--background) / 0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-  }
-
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 20px !important;
-  }
-
-  .swiper-button-next:hover,
-  .swiper-button-prev:hover {
-    background: hsl(var(--primary)) !important;
-    color: hsl(var(--background)) !important;
-  }
-
-  .swiper-button-next {
-    right: 30px !important;
-  }
-
-  .swiper-button-prev {
-    left: 30px !important;
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
   }
 }
 
-.outer-border {
-  position: relative;
+
+
+/* --- ANIMATIONS --- */
+@keyframes speed-lines-move {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
 }
 
-.outer-border::before {
-  content: "";
-  position: absolute;
-
-  /* push outward */
-  inset: -12px;
-
-  background: black;
-  /* border color */
-  border-bottom-left-radius: 2.5rem;
-
-  z-index: -1;
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
 }
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes race-line {
+  0% { width: 0%; left: 0; }
+  50% { width: 100%; left: 0; }
+  51% { width: 100%; right: 0; left: auto; }
+  100% { width: 0%; right: 0; left: auto; }
+}
+
+.animate-race-line {
+  animation: race-line 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes fade-in-slide {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fade-in-slide 0.5s ease-out forwards;
+}
+
+@keyframes speed-sweep {
+  0% { transform: skewX(-20deg) translateX(-150%); }
+  100% { transform: skewX(-20deg) translateX(350%); }
+}
+
+.animate-speed-sweep {
+  animation: speed-sweep 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.live-pulse {
+  animation: live-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0% { box-shadow: 0 0 0 0 hsl(var(--racing-red) / 0.7); }
+  70% { box-shadow: 0 0 0 6px hsl(var(--racing-red) / 0); }
+  100% { box-shadow: 0 0 0 0 hsl(var(--racing-red) / 0); }
+}
+
