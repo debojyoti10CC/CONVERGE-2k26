@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MapPin, Zap, Flag, Timer, ChevronRight } from "lucide-react";
+import { Flag, ChevronRight } from "lucide-react";
+
+import scheduleBg from "@/assets/bgs/speedometer_bg.jpg";
 
 type Event = {
   time: string;
@@ -65,10 +67,24 @@ export default function TimelineSection() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-background text-foreground overflow-x-hidden relative flex flex-col py-12 md:py-24">
-      {/* Background Effects */}
-      <div className="fixed inset-0 racing-stripe opacity-10 pointer-events-none" />
-      <div className="fixed inset-0 speed-lines opacity-10 pointer-events-none" />
+    // Added 'isolate' to control stacking context
+    <div ref={sectionRef} className="min-h-screen text-foreground overflow-x-hidden relative flex flex-col py-12 md:py-24 isolate">
+      
+      {/* --- BACKGROUND SETUP START --- */}
+      <div className="absolute inset-0 -z-20">
+        {/* Image Layer */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${scheduleBg})` }}
+        />
+        {/* Dimming Layer (Black + Blur) */}
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+      </div>
+      {/* --- BACKGROUND SETUP END --- */}
+
+      {/* Decorative Background Effects (kept your original ones) */}
+      <div className="fixed inset-0 racing-stripe opacity-10 pointer-events-none -z-10" />
+      <div className="fixed inset-0 speed-lines opacity-10 pointer-events-none -z-10" />
       
       {/* Content Container */}
       <div className="relative z-10 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto w-full flex-1 flex flex-col">
