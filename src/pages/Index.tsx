@@ -115,11 +115,11 @@ const Index = () => {
       </section>
 
       <section className="h-auto">
-        <TeamSelection />
+        <SponsorshipSection />
       </section>
 
       <section className="h-auto">
-        <SponsorshipSection />
+        <TeamSelection />
       </section>
     </main>
   );
