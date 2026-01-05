@@ -11,7 +11,11 @@ import ferrariDriver from "../../assets/drivers/ferrari-driver.jpeg";
 import mercedesDriver from "../../assets/drivers/mercedes-driver.jpeg";
 import mclarenDriver from "../../assets/drivers/mclaren-driver.jpg";
 
-const HeroSectionMobile = () => {
+const HeroSectionMobile = ({
+  onTransition,
+}: {
+  onTransition: (section: string) => void;
+}) => {
   const crest = localStorage.getItem("converge_crest");
 
   const bgUrl =
@@ -51,7 +55,7 @@ const HeroSectionMobile = () => {
           className="h-[10%]
                 w-full rounded-[2rem] mb-6"
         >
-          <Navbar />
+          <Navbar onNavigate={(section) => onTransition(section)} />
         </div>
 
         {/* Hero image */}

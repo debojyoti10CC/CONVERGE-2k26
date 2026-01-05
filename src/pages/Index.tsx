@@ -103,22 +103,32 @@ const Index = () => {
       className="bg-background min-h-screen overflow-hidden"
     >
       <section id="home" className="h-screen">
-        {isMobile ? <HeroSectionMobile /> : <HeroSectionDesktop />}
+        {isMobile ? (
+          <HeroSectionMobile
+            onTransition={(sectionID) => handleNavigate(sectionID)}
+          />
+        ) : (
+          <HeroSectionDesktop
+            onTransition={(sectionID) => handleNavigate(sectionID)}
+          />
+        )}
       </section>
 
-      <section className="h-auto">
-        <EventsSection />
+      <section id="events" className="h-auto">
+        <EventsSection
+          onTransition={(sectionID) => handleNavigate(sectionID)}
+        />
       </section>
 
-      <section className="h-auto">
+      <section id="timeline" className="h-auto">
         <TimelineSection />
       </section>
 
-      <section className="h-auto">
+      <section id="sponsors" className="h-auto">
         <SponsorshipSection />
       </section>
 
-      <section className="h-auto">
+      <section id="team" className="h-auto">
         <TeamSelection />
       </section>
     </main>
