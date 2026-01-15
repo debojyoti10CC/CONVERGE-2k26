@@ -125,9 +125,9 @@ const Index = () => {
         <TimelineSection />
       </section>
 
-      <section id="sponsors" className="h-auto">
+      {/* <section id="sponsors" className="h-auto">
         <SponsorshipSection />
-      </section>
+      </section> */}
 
       <section id="team" className="h-auto">
         <TeamSelection />
