@@ -6,33 +6,32 @@ import scheduleBg from "@/assets/bgs/speedometer_bg.jpg";
 type Event = {
   time: string;
   title: string;
-  category: "F1" | "F2" | "Support";
+  category: "Online" | "Offline";
 };
 
 const scheduleData: Record<string, Event[]> = {
   Friday: [
-    { time: "10:30", title: "Paddock Club Track Tour", category: "Support" },
-    { time: "11:45", title: "F3 Practice Session", category: "Support" },
-    { time: "13:30", title: "Formula 1 - Free Practice 1", category: "F1" },
-    { time: "15:00", title: "F2 Practice Session", category: "Support" },
-    { time: "17:00", title: "Formula 1 - Free Practice 2", category: "F1" },
-    { time: "18:30", title: "Paddock Club Pit Lane Walk", category: "Support" },
+    { time: "10:30", title: "Paddock Club Track Tour", category: "Online" },
+    { time: "11:45", title: "F3 Practice Session", category: "Online" },
+    
   ],
   Saturday: [
-    { time: "09:00", title: "F3 Qualifying Session", category: "Support" },
-    { time: "10:30", title: "F2 Qualifying Session", category: "Support" },
-    { time: "12:30", title: "Formula 1 - Free Practice 3", category: "F1" },
-    { time: "14:15", title: "F3 Sprint Race", category: "Support" },
-    { time: "16:00", title: "Formula 1 - Qualifying", category: "F1" },
-    { time: "17:30", title: "F2 Sprint Race", category: "Support" },
+    { time: "09:00", title: "Registration starts", category: "Offline" },
+    { time: "10:00", title: "Explanation of the days flow and Rules of Games Carnival", category: "Offline" },
+    { time: "11.00", title: "Games Carnival", category: "Offline" },
+    { time: "14:00", title: "LUNCH", category: "Offline" },
+    { time: "15:00", title: "Workshops (1,2 & 3)", category: "Offline" },
+    { time: "16:30", title: "Ideasprint", category: "Offline" },
+    { time: "20:00", title: "CodeSprint", category: "Online" },
   ],
   Sunday: [
-    { time: "09:45", title: "F3 Feature Race", category: "Support" },
-    { time: "11:15", title: "F2 Feature Race", category: "Support" },
-    { time: "13:00", title: "Driver Parade", category: "F1" },
-    { time: "14:20", title: "National Anthem", category: "F1" },
-    { time: "15:00", title: "Grand Prix (58 Laps)", category: "F1" },
-    { time: "17:00", title: "Podium Ceremony", category: "F1" },
+    { time: "10:00", title: "Tech Talk/ Career Counselling", category: "Offline" },
+    { time: "11:30", title: "Converge Creator Submission Closes", category: "Offline" },
+    { time: "11.30", title: "FUN EVENT", category: "Online" },
+    { time: "14:00", title: "LUNCH", category: "Offline" },
+    { time: "15:00", title: "Converge Got Talent Finals", category: "Offline" },
+    { time: "16:30", title: "Valedictory Session", category: "Offline" },
+    { time: "17:00", title: "Grand Auction", category: "Offline" },
   ],
 };
 
@@ -68,10 +67,11 @@ export default function TimelineSection() {
 
   return (
     // Added 'isolate' to control stacking context
-    <div ref={sectionRef} className="min-h-screen text-foreground overflow-x-hidden relative flex flex-col py-12 md:py-24 isolate">
+    <div ref={sectionRef} className="min-h-screen  overflow-hidden text-foreground overflow-x-hidden relative flex flex-col py-12 md:py-24 isolate">
+      
       
       {/* --- BACKGROUND SETUP START --- */}
-      <div className="absolute inset-0 -z-20">
+      <div className="absolute inset-0 -z-20  overflow-hidden">
         {/* Image Layer */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -87,10 +87,10 @@ export default function TimelineSection() {
       <div className="fixed inset-0 speed-lines opacity-10 pointer-events-none -z-10" />
       
       {/* Content Container */}
-      <div className="relative z-10 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto w-full flex-1 flex flex-col">
+      <div className="relative z-10 px-4 md:px-16 lg:px-24 max-w-7xl mx-auto w-full h-full flex-1 flex flex-col">
         
         {/* Header - Slides in from Left */}
-        <header className={`mb-12 transition-all duration-700 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
+        <header className={`flex-shrink-0 mb-8 transition-all duration-700 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
           <div className="flex items-center gap-4 mb-4">
             <div className="w-1.5 h-12 md:h-20 bg-f1-red rounded-sm shadow-[0_0_15px_rgba(255,0,0,0.5)]" />
             <div>
@@ -134,7 +134,7 @@ export default function TimelineSection() {
         </div>
 
         {/* Schedule List - With Enhanced "Race Mode" Hover Effects */}
-        <div className="flex-1 space-y-4">
+        <div className="flex-1  space-y-4 pr-2 ">
           {isVisible && scheduleData[activeDay].map((event, idx) => (
             <div
               key={`${activeDay}-${idx}`}
@@ -149,7 +149,7 @@ export default function TimelineSection() {
                 hover:-translate-y-1 hover:scale-[1.01]
                 transition-all duration-300 ease-out
                 overflow-hidden rounded-r-md
-                ${event.category === "F1" ? "border-l-[6px] border-l-f1-red" : "border-l-[6px] border-l-gray-700"}
+                ${event.category === "Online" ? "border-l-[6px] border-l-f1-red" : "border-l-[6px] border-l-gray-700"}
               `}>
                 
                 {/* Background Sweep Effect - Sweeps faster and brighter on hover */}
@@ -163,7 +163,7 @@ export default function TimelineSection() {
                       block text-xl md:text-3xl font-black tracking-tighter transition-colors duration-300
                       /* Time turns RED on hover */
                       group-hover:text-f1-red group-hover:drop-shadow-[0_0_8px_rgba(220,38,38,0.5)]
-                      ${event.category === "F1" ? "text-white" : "text-muted-foreground"}
+                      ${event.category === "Online" ? "text-white" : "text-muted-foreground"}
                     `}>
                       {event.time}
                     </span>
@@ -179,27 +179,27 @@ export default function TimelineSection() {
                   <div className="flex-1 min-w-0 flex flex-col md:flex-row md:items-center justify-between gap-2">
                     <div>
                       <h3 className={`
-                        text-sm md:text-xl font-bold uppercase tracking-wide truncate transition-colors duration-300
+                        text-sm md:text-xl font-bold uppercase tracking-wide transition-colors duration-300
                         group-hover:text-white
-                        ${event.category === "F1" ? "text-white" : "text-gray-400"}
+                        ${event.category === "Online" ? "text-white" : "text-gray-400"}
                       `}>
                         {event.title}
                       </h3>
                       
-                      {event.category === "F1" && (
+                      {event.category === "Online" && (
                         <div className="flex items-center gap-2 mt-1 opacity-80 group-hover:opacity-100 transition-opacity">
                           <span className="w-2 h-2 rounded-full bg-f1-red animate-pulse shadow-[0_0_10px_red]"></span>
-                          <span className="text-[10px] font-bold text-f1-red uppercase tracking-wider">Live Session</span>
+                          <span className="text-[10px] font-bold text-f1-red uppercase tracking-wider">Online</span>
                         </div>
                       )}
                     </div>
 
                     {/* Arrow Icon - Moves right */}
-                    <ChevronRight className={`
+                    {/* <ChevronRight className={`
                       w-6 h-6 transition-all duration-300 
                       group-hover:translate-x-2 group-hover:text-f1-red
                       ${event.category === "F1" ? "text-f1-red" : "text-gray-600"}
-                    `} />
+                    `} /> */}
                   </div>
                 </div>
               </div>
