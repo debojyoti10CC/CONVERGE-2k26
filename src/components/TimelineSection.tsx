@@ -11,8 +11,9 @@ type Event = {
 
 const scheduleData: Record<string, Event[]> = {
   Friday: [
-    { time: "10:30", title: "Paddock Club Track Tour", category: "Online" },
-    { time: "11:45", title: "F3 Practice Session", category: "Online" },
+    { time: "18:30", title: "Inaugration and Panel discussion", category: "Online" },
+    { time: "20:30", title: "Ideasprint Submission Closes", category: "Online" },
+    { time: "20:30", title: "Converge Creator Submission Opens", category: "Online" },
   ],
   Saturday: [
     { time: "09:00", title: "Registration starts", category: "Offline" },
@@ -36,9 +37,9 @@ const scheduleData: Record<string, Event[]> = {
     {
       time: "11:30",
       title: "Converge Creator Submission Closes",
-      category: "Offline",
+      category: "Online",
     },
-    { time: "11.30", title: "FUN EVENT", category: "Online" },
+    { time: "11.30", title: "FUN EVENT", category: "Offline" },
     { time: "14:00", title: "LUNCH", category: "Offline" },
     { time: "15:00", title: "Converge Got Talent Finals", category: "Offline" },
     { time: "16:30", title: "Valedictory Session", category: "Offline" },
