@@ -330,19 +330,6 @@ const EventsSection = ({ onTransition }: EventsSectionProps) => {
                     ))}
                   </div>
                 </motion.div>
-
-                {/* Action Buttons */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 }}
-                  className="grid grid-cols-2 gap-4 pt-6"
-                >
-                  <button className="cta-button-outline w-full">
-                    Register
-                  </button>
-                  <button className="cta-button w-full">Learn More</button>
-                </motion.div>
               </div>
             </motion.div>
           </motion.div>

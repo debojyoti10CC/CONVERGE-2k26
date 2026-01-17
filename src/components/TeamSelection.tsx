@@ -6,18 +6,26 @@ import crest2 from "@/assets/CONVERGE (2).png";
 import crest3 from "@/assets/CONVERGE (3).png";
 import crest4 from "@/assets/CONVERGE (6).png";
 
+import samya from "@/assets/Team_section/Samya.svg";
+import souhardya from "@/assets/Team_section/Souhardya.svg";
+import souherdya from "@/assets/Team_section/Souherdya.svg";
+import swarnalee from "@/assets/Team_section/Swarnalee.svg";
+import archishman from "@/assets/Team_section/Archishman.svg";
+import shinjan from "@/assets/Team_section/Shinjan.svg";
+import subhraneel from "@/assets/Team_section/Subhraneel.svg";
+
 const teamCards = [
   {
-    id: "mercedes",
-    name: "AMG PETRONAS",
-    role: "FORMULA ONE TEAM",
-    image: crest3,
+    id: "chairperson",
+    name: "SAMYA DUTTA",
+    role: "CHAIRPERSON",
+    image: samya,
   },
   {
-    id: "redbull",
-    name: "ORACLE Red Bull Racing",
-    role: "FORMULA ONE TEAM",
-    image: crest2,
+    id: "vice-chairperson",
+    name: "SUBHRANEEL DAS",
+    role: "VICE-CHAIRPERSON",
+    image: subhraneel,
   },
   {
     id: "mclaren",
@@ -26,37 +34,39 @@ const teamCards = [
     image: crest4,
   },
   {
-    id: "ferrari",
-    name: "Scuderia Ferrari",
-    role: "FORMULA ONE TEAM",
-    image: crest1,
+    id: "Secretary",
+    name: "SHINJAN BHATTA",
+    role: "SECRETARY",
+    image: shinjan,
   },
   {
-    id: "placeholder-1",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest1,
+    id: "join-secretary",
+    name: "SOUHARDYA RAY",
+    role: "JOINT SECRETARY",
+    image: souhardya,
+  },
+  {
+    id: "webmaster",
+    name: "SOUHERDYA SARKAR",
+    role: "WEBMASTER",
+    image: souherdya,
+    placeholder: true,
+  },
+
+  //CORE
+
+  {
+    id: "Spokesperson",
+    name: "ARCHISHMAN DAS",
+    role: "SPOKESPERSON",
+    image: archishman,
     placeholder: true,
   },
   {
-    id: "placeholder-2",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest2,
-    placeholder: true,
-  },
-  {
-    id: "placeholder-3",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest3,
-    placeholder: true,
-  },
-  {
-    id: "placeholder-4",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest4,
+    id: "GraphicsLead",
+    name: "SWARNALEE RAY",
+    role: "GRAPHICS LEAD",
+    image: swarnalee,
     placeholder: true,
   },
   {
@@ -112,9 +122,9 @@ const TeamSelection = () => {
         </motion.h2>
 
         <div className="flex flex-col gap-6 max-w-6xl mx-auto">
-          {/* TOP ROW – 5 CARDS */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {teamCards.slice(0, 5).map((team, index) => (
+          {/* TOP ROW – 6 CARDS */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+            {teamCards.slice(0, 6).map((team, index) => (
               <motion.div
                 key={team.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -141,10 +151,10 @@ const TeamSelection = () => {
                 <div className="relative z-10 h-full flex flex-col justify-between p-6">
                   <div />
                   <div className="text-center">
-                    <p className="font-display text-lg md:text-xl font-bold text-white drop-shadow-sm">
+                    <p className="font-display text-[0.7rem] md:text-lg font-bold text-white drop-shadow-sm">
                       {team.name}
                     </p>
-                    <p className="font-display text-xs md:text-sm text-white/80 mt-2 tracking-wide">
+                    <p className="font-display text-[0.5rem] md:text-sm text-white/80 mt-2 tracking-wide">
                       {team.role}
                     </p>
                   </div>
@@ -153,9 +163,9 @@ const TeamSelection = () => {
             ))}
           </div>
 
-          {/* BOTTOM ROW – 6 CARDS */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
-            {teamCards.slice(5, 11).map((team, index) => (
+          {/* BOTTOM ROW – 5 CARDS */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {teamCards.slice(6, 11).map((team, index) => (
               <motion.div
                 key={team.id}
                 initial={{ opacity: 0, y: 30 }}

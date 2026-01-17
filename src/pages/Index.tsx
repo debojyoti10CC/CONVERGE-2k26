@@ -137,8 +137,9 @@ const Index = () => {
 
       <GallerySection />
 
-
-      <Footer />
+      <section id="contact">
+        <Footer />
+      </section>
     </main>
   );
 };

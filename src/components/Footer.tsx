@@ -54,7 +54,7 @@ const Footer = () => {
         setTimeLeft({
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
           hours: Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
           ),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((distance % (1000 * 60)) / 1000),
@@ -140,7 +140,7 @@ const Footer = () => {
         <div className="flex flex-col xl:flex-row justify-between items-end mb-16 border-b border-zinc-900 pb-8 gap-8">
           {/* Brand */}
           <div className="relative group">
-            <h2 className="font-formula1 text-6xl md:text-7xl italic tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-zinc-200 to-zinc-600 drop-shadow-2xl">
+            <h2 className="font-formula1 text-6xl md:text-7xl italic tracking-tighter bg-clip-text bg-gradient-to-br from-white via-zinc-200 to-zinc-600 drop-shadow-2xl">
               CONVERGE<span className="text-racing-red">.</span>
             </h2>
             <div className="absolute -bottom-4 left-0 w-full h-1 bg-gradient-to-r from-racing-red to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
@@ -338,7 +338,7 @@ const Footer = () => {
                   >
                     <Phone className="w-4 h-4 text-racing-red" />
                     <span className="text-sm font-mono text-white">
-                      +91 1234567890
+                      +91 8910169299
                     </span>
                   </a>
                 </div>
@@ -415,7 +415,7 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="flex items-center gap-6 text-[10px] font-mono uppercase text-zinc-500 mt-4 md:mt-0">
+          <div className="flex items-center gap-6 text-[10px] font-formula1 uppercase text-zinc-500 mt-4 md:mt-0">
             <span>© {currentYear} CONVERGE</span>
             <div className="flex gap-4">
               <a href="#" className="hover:text-racing-red transition-colors">
