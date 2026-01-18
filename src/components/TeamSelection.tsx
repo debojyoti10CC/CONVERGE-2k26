@@ -13,6 +13,10 @@ import swarnalee from "@/assets/Team_section/Swarnalee.svg";
 import archishman from "@/assets/Team_section/Archishman.svg";
 import shinjan from "@/assets/Team_section/Shinjan.svg";
 import subhraneel from "@/assets/Team_section/Subhraneel.svg";
+import ishika from "@/assets/Team_section/Ishika.svg";
+import amreta from "@/assets/Team_section/Amreta.svg";
+import ananya from "@/assets/Team_section/Ananya.svg";
+import srijit from "@/assets/Team_section/Srijit.svg";
 
 const teamCards = [
   {
@@ -28,10 +32,10 @@ const teamCards = [
     image: subhraneel,
   },
   {
-    id: "mclaren",
-    name: "McLaren",
-    role: "FORMULA ONE TEAM",
-    image: crest4,
+    id: "Treasurer",
+    name: "SRIJIT CHAKRABORTY",
+    role: "TREASURER",
+    image: srijit,
   },
   {
     id: "Secretary",
@@ -70,24 +74,24 @@ const teamCards = [
     placeholder: true,
   },
   {
-    id: "placeholder-5",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest1,
+    id: "MediaLead",
+    name: "ANANYA MUKHERJEE",
+    role: "MEDIA LEAD",
+    image: ananya,
     placeholder: true,
   },
   {
-    id: "placeholder-6",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest2,
+    id: "ContentLead",
+    name: "AMRETA DEY",
+    role: "CONTENT LEAD",
+    image: amreta,
     placeholder: true,
   },
   {
-    id: "placeholder-7",
-    name: "Coming Soon",
-    role: "FORMULA ONE TEAM",
-    image: crest3,
+    id: "PRLead",
+    name: "ISHIKA DUTTA",
+    role: "PR LEAD",
+    image: ishika,
     placeholder: true,
   },
 ];

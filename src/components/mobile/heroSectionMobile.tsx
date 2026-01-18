@@ -2,7 +2,7 @@ import { ArrowRight, ArrowDownRight, ArrowRightCircleIcon } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import Navbar from "../Navbar";
 import redbullPic from "../../assets/bgs/redbull-bg.jpg";
-import ferrariPic from "../../assets/bgs/ferarri-bg.jpeg";
+import ferrariPic from "../../assets/bgs/ferarri-bg.jpg";
 import mercedesPic from "../../assets/bgs/mercedes-bg.jpg";
 import mclarenPic from "../../assets/bgs/mclaren-bg.jpeg";
 import SocialBar from "../SocialBar";
@@ -23,23 +23,23 @@ const HeroSectionMobile = ({
     crest == "redbull"
       ? redbullPic
       : crest == "ferrari"
-      ? ferrariPic
-      : crest == "mercedes"
-      ? mercedesPic
-      : crest == "mclaren"
-      ? mclarenPic
-      : redbullPic;
+        ? ferrariPic
+        : crest == "mercedes"
+          ? mercedesPic
+          : crest == "mclaren"
+            ? mclarenPic
+            : redbullPic;
 
   const driver =
     crest == "redbull"
       ? redBullDriver
       : crest == "ferrari"
-      ? ferrariDriver
-      : crest == "mercedes"
-      ? mercedesDriver
-      : crest == "mclaren"
-      ? mclarenDriver
-      : redBullDriver;
+        ? ferrariDriver
+        : crest == "mercedes"
+          ? mercedesDriver
+          : crest == "mclaren"
+            ? mclarenDriver
+            : redBullDriver;
 
   return (
     <div
@@ -211,7 +211,7 @@ const HeroSectionMobile = ({
             onClick={() =>
               window.open(
                 "https://www.instagram.com/ieeecsiem_official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
-                "noopener noreferrer"
+                "noopener noreferrer",
               )
             }
           />
@@ -220,7 +220,7 @@ const HeroSectionMobile = ({
             onClick={() =>
               window.open(
                 "https://www.facebook.com/share/1FZXy35wMx/",
-                "noopener noreferrer"
+                "noopener noreferrer",
               )
             }
           />

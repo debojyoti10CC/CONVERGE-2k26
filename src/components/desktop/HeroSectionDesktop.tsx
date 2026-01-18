@@ -2,7 +2,7 @@ import { ArrowRight, ArrowDownRight, ArrowRightCircleIcon } from "lucide-react";
 import { motion, Variants } from "framer-motion";
 import Navbar from "../Navbar";
 import redbullPic from "../../assets/bgs/redbull-bg.jpg";
-import ferrariPic from "../../assets/bgs/ferarri-bg.jpeg";
+import ferrariPic from "../../assets/bgs/ferarri-bg.jpg";
 import mercedesPic from "../../assets/bgs/mercedes-bg.jpg";
 import mclarenPic from "../../assets/bgs/mclaren-bg.jpeg";
 import SocialBar from "../SocialBar";
@@ -11,6 +11,8 @@ import ferrariDriver from "../../assets/drivers/ferrari-driver.jpeg";
 import mercedesDriver from "../../assets/drivers/mercedes-driver.jpeg";
 import mclarenDriver from "../../assets/drivers/mclaren-driver.jpg";
 
+import iem from "../../assets/logos/Converge-Logos/iem.png";
+import converge from "../../assets/logos/Converge-Logos/CONVERGE.png";
 const HeroSectionDesktop = ({
   onTransition,
 }: {
@@ -44,12 +46,12 @@ const HeroSectionDesktop = ({
     crest == "redbull"
       ? redbullPic
       : crest == "ferrari"
-      ? ferrariPic
-      : crest == "mercedes"
-      ? mercedesPic
-      : crest == "mclaren"
-      ? mclarenPic
-      : redbullPic;
+        ? ferrariPic
+        : crest == "mercedes"
+          ? mercedesPic
+          : crest == "mclaren"
+            ? mclarenPic
+            : redbullPic;
 
   return (
     <div
@@ -187,6 +189,44 @@ const HeroSectionDesktop = ({
               </button>
             </motion.div>
           </motion.div>
+        </motion.div>
+
+        {/* Event logos */}
+        <motion.div
+          className="absolute top-0 left-20 z-50"
+          variants={fastSlide(0, -80)}
+          initial="hidden"
+          animate="visible"
+          transition={{
+            delay: 0.2,
+            duration: 0.8,
+          }}
+        >
+          <div
+            className="flex items-center gap-8 bg-gradient-to-b 
+          from-white/50 via-white/40 to-transparent backdrop-blur-md 
+          border-x border-b border-white/40 px-10 py-2 
+          rounded-b-[2.5rem] shadow-lg hover:bg-white/20 
+          transition-all duration-500"
+          >
+            <img
+              src={iem}
+              className="h-16 w-auto object-contain 
+              drop-shadow-md hover:scale-110 
+              transition-transform duration-300 cursor-pointer"
+              alt="IEM Logo"
+            />
+
+            <div className="w-[1px] h-12 bg-white/20"></div>
+
+            <img
+              src={converge}
+              className="h-12 w-auto object-contain drop-shadow-md 
+              scale-125 hover:scale-110 transition-transform 
+              duration-300 cursor-pointer"
+              alt="Converge Logo"
+            />
+          </div>
         </motion.div>
 
         <motion.div
