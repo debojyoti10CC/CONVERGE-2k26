@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { X, MessageSquare, Radio, Mic2, Activity } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import maxPixel from "public/favicon.svg"; // Ensure this asset exists, if not need to fallback or use a placeholder
+import maxPixel from "/favicon.svg";
+ // Ensure this asset exists, if not need to fallback or use a placeholder
 
 const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
